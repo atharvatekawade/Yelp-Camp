@@ -1,0 +1,31 @@
+#card {
+    padding: 9px;
+  }
+
+.special{
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  
+}
+
+.two{
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.same{
+  display: inline;
+}
+.c{
+  color:#007BFF;
+}
+
+#b:hover{
+  
+  text-decoration:underline;
+}
+
+.h:hover{
+  color: #007BFF;
+}

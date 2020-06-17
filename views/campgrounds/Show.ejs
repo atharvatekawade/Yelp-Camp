@@ -1,0 +1,75 @@
+<%- include('../partials/header.ejs') %>
+        <br>
+        <br>
+        <div class='container'>
+            <% if(red && red.length>0){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= red %>
+                </div>
+            <% } %>
+            <div class='row'>
+                <div class='col-md-3'>
+                    <p class='lead'>YelpCamp</p>
+                    <div class='list group'>
+                        <li class='list-group-item active'>Info 1</li>
+                        <li class='list-group-item'>Info 2</li>
+                        <li class='list-group-item'>Info 3</li>
+                    </div>
+                    <!--MAP-->
+                </div>
+                <div class='col-md-9'>
+                    <div class="card h-100">            
+                        <img class="card-img-top img-fluid img-responsive" src='<%= result_1.image %>' alt="Card image cap">             
+                        <div class="card-block" id='card'>
+                            <br>
+                            
+                            <br>
+                            <h4 class='float-right'>$<%= result_1.price %></h4>
+                            <a><h4 class><a href='#'><%= result_1.name %></a></h4>
+                            <p><%= result_1.description %></p>
+                            <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+                            <p class="card-text text-muted"><i>- Submitted By <%= result_1.author %></i></p>
+                            <% if (user) { %>
+                                <% if (user.username===result_1.author) { %>
+                                    <a href="/campgrounds/<%= result_1.id %>/edit" class='card-text btn btn-warning'>Edit</a>
+                                    <form method="POST" action='/campgrounds/<%= result_1.id %>?_method=DELETE' class='same'>
+                                        <button class='btn btn-danger mr-2'>Delete</button>
+                                    </form>
+                                <% } %>
+
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class='row'>
+                <div class='col-md-3'></div>
+                <div class='col-md-9'>
+                    <div class="card card-body bg-light">
+                        <div class='text-right'>
+                            <p><a href="/campgrounds/<%= result_1.id %>/comments/new"class='btn btn-success'>Add Comment</a></p>
+                        </div>
+                        <% for(var i=result_2.length-1;i>=0;i--){ %>
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <b><%= result_2[i].author %>:</b>
+                                    <span class='float-right'>10 days ago</span>
+                                    <br>
+                                    <%= result_2[i].text %>
+                                    <% if(user && user.username===result_2[i].author){ %>
+                                        <a href="/campgrounds/<%= result_1.id %>/comments/<%= result_2[i].id %>/edit" class='card-text h same ml-2'>Edit</a>
+                                        <form method="POST" action='/campgrounds/<%= result_1.id %>/comments/<%= result_2[i].id %>?_method=DELETE' class='same'>
+                                            <button class='special ml-1 c' id="b">Delete</button>
+                                        </form>
+                                    <% } %>
+                                    
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    <%- include('../partials/footer.ejs') %>

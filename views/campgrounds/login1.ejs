@@ -1,0 +1,32 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="/stylesheets/main.css" integrity="" crossorigin="anonymous" integrity="">
+<div class='container'>
+    <br>
+    <h1 style='text-align: center;'>Login</h1>
+    
+    
+    <div style='width:30%; margin: 0 auto; margin: 25px auto;'>
+        <% if(messages && messages.length>0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= messages %>
+            </div>
+        <% } %>
+        <% if(red && red.length>0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= red %>
+            </div>
+        <% } %>
+        <form action="<%= url %>" method='POST'>
+            <div class='form-group'>
+                <input class='form-control' type="text" name="username" placeholder="username">
+            </div>
+            <div class='form-group'>
+                <input class='form-control' type="password" name="password" placeholder="password">
+            </div>
+            <div class='form-group'>
+                <button class='btn btn-lg btn-primary form-control btn-block'>Submit</button>
+            </div> 
+        </form>
+</div>
+
+

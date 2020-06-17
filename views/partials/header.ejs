@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Yelp Camp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/main.css" integrity="" crossorigin="anonymous" integrity="">
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/campgrounds">Yelp Camp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <% if (!user){ %>
+                  <li class="nav-item active">
+                    <div class='justify-content-end'><a class="nav-link" href="/login">Login</a></div>
+                  </li>
+                  <li class="nav-item">
+                      <div class='justify-content-end'><a class="nav-link" href="/register">Sign Up</a></div>
+                  </li>
+                <% } %>
+                <% if(user){ %>
+                  <li class="nav-item active">
+                    <div class='justify-content-end mr-3 two'>Signed in as <%= user.username %></div>
+                  </li>
+                  <li class="nav-item">
+                      <div class='justify-content-end'>
+                        <form action="/logout?_method=DELETE" method='POST'>
+                          <button class='two special'>Log Out</button>
+                      </form>
+                      </div>
+                  </li>
+                <% } %>
+                
+                
+              </ul>
+            </div>
+          </nav>
+        

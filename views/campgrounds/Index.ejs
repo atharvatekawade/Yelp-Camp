@@ -1,0 +1,55 @@
+<%- include('../partials/header.ejs') %>
+
+
+
+<br>
+<div class='container'>
+    <% if(green && green.length>0){ %>
+        <div class="alert alert-success" role="alert">
+            <%= green %>
+        </div>
+    <% } %>
+    <% if(msg && msg.length>0){ %>
+        <div class="alert alert-success" role="alert">
+            <%= msg %>
+        </div>
+    <% } %>
+</div>
+<div class='container'>
+    <header class='jumbotron'>
+        <div class='container'>
+            <h1>Welcome to Yelp Camp</h1>
+            
+            <p>View some select campgrounds</p>
+            <p><a class='btn btn-primary btn-large' href="/campgrounds/new">Add new Campground</a></p>
+        </div>
+    </header>
+    <div class='row text-center' style="display:flex; flex-wrap: wrap;">
+    
+        
+        <% for(var i=0;i<campgrounds.length;i++) { %>
+        
+        
+            <div class="col-md-6 col-lg-4 col-xl-4 py-2">
+                <div class="card h-100">
+                        
+                    <img class="card-img-top img-fluid" src='<%= campgrounds[i].image %>' alt="Card image cap">             
+                    <div class="card-block">
+                        <br>
+                        <h4 class="card-title"><%= campgrounds[i].name %></h4>
+                        <br>
+                        <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+                        
+
+                        <p><a href="/campgrounds/<%= campgrounds[i].id %>" class='btn btn-primary'>More Info</a></p>
+                            
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>  
+
+
+    
+
+<%- include('../partials/footer.ejs') %>
