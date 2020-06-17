@@ -1,2 +1,2 @@
 # Yelp-Camp
-Sample node js course project 
+Sample node js course project.
